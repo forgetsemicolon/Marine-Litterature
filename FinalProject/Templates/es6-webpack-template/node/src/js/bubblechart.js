@@ -89,57 +89,63 @@ export async function drawBubbleChart(){
 
     // Add a scale for bubble size
     var z = d3.scaleLinear()
-        .domain([20, 1061])
-        .range([ 1, 100]);
+        .domain([1, 1061])
+        .range([5, 150]);
 
 
-    var tooltip = d3.select("#bubblechart")
-                    .append("div")
-                    .style("opacity", 0)
-                    .attr("id", "tooltip")
-                    .style("background-color", "grey")
-                    .style("border-radius", "5px")
-                    .style("padding", "10px")
-                    .style("color", "white")
+    // var tooltip = d3.select("#bubblechart")
+    //                 .append("div")
+    //                 .style("opacity", 0)
+    //                 .attr("id", "tooltip")
+    //                 .style("background-color", "grey")
+    //                 .style("border-radius", "5px")
+    //                 .style("padding", "10px")
+    //                 .style("color", "white")
 
-                    tooltip.append("text")
-                    .attr("x", 15)
-                    .attr("dy", "1.2em")
-                    .style("text-anchor", "middle")
-                    .attr("font-size", "12px")
-                    .attr("font-weight", "bold");
+    //                 tooltip.append("text")
+    //                 .attr("x", 15)
+    //                 .attr("dy", "1.2em")
+    //                 .style("text-anchor", "middle")
+    //                 .attr("font-size", "12px")
+    //                 .attr("font-weight", "bold");
 
     
-    var showTooltip = function(d) {
+    // var showTooltip = function(d) {
                         
-                    tooltip
-                          .transition()
-                          .duration(200)
-                    tooltip
-                          .style("opacity", 1)
-                          .html("Popularity: " + d.popularity)
-                        //   .style("left", (d3.mouse(this)[0]+30) + "px")
-                        //   .style("top", (d3.mouse(this)[1]+30) + "px")
+    //                 tooltip
+    //                       .transition()
+    //                       .duration(200)
+    //                 tooltip
+    //                       .style("opacity", 1)
+    //                       .html("Community name: " + d.CommunityName)
+    //                       .style("left", (d3.mouse(this)[0]+30) + "px")
+    //                       .style("top", (d3.mouse(this)[1]+30) + "px")
 
-                      }
+    //                   }
 
-    var moveTooltip = function(d) {
+    // var moveTooltip = function(d) {
                         
-                    tooltip
-                          //.style("left", (d3.mouse(this)[0]+30) + "px")
-                          //.style("top", (d3.mouse(this)[1]+30) + "px")
-                      }
+    //                 tooltip
+    //                       .style("left", (d3.mouse(this)[0]+30) + "px")
+    //                       .style("top", (d3.mouse(this)[1]+30) + "px")
+    //                   }
     
-    var hideTooltip = function(d) {
+    // var hideTooltip = function(d) {
                 
-                    tooltip
-                          .transition()
-                          .duration(200)
-                          .style("opacity", 0)
-                      }
+    //                 tooltip
+    //                       .transition()
+    //                       .duration(200)
+    //                       .style("opacity", 0)
+    //                   }
                     
     
     const gGrid = svg.append("g");
+
+
+    var toolTip = d3.select('body')
+    .append('div')
+    .attr('id', 'tooltip')
+    .attr('style', 'position: absolute; opacity: 0;');
 
     
     
@@ -152,23 +158,37 @@ export async function drawBubbleChart(){
         .enter()
         .append("circle")
         .attr("class", "bubbles")
-        .attr("cx", function (d) { console.log("xxxx:   " + Math.random()*50); return x(Math.random()*100); } )
+        .attr("cx", function (d) { return x(Math.random()*100); } )
         .attr("cy", function (d) { return y(Math.random()); } )
         .attr("r", function (d) { return z(d.BeachesCleaned); } )
         .style("opacity", 0.8)
+        .on('mouseover', function (d) {
+            d3.select('#tooltip')
+                .transition()
+                .duration(200)
+                .style('opacity', 1);
+    
+            d3.select('#tooltip').html(d.CommunityName)
+                .style("left", d3.event.pageX + "px")
+                .style("top", "10px")
+        })
+        .on('mouseout', function () {
+            d3.select('#tooltip').style('opacity', 0)
+        })
+    
         // .attr("stroke", "black")
-        .style("stroke-width", '2.5px')
-        //.on('mouseover', showTooltip)
-        // .on('mouseover', function(d) {
-        //     tooltip.transition()
-        //     //tooltip.duration(200)
-        //     tooltip.style("opacity", 1)
-        //     tooltip.select("text").text(d.CommunityName);
-        // })
+        // .style("stroke-width", '2.5px')
+        // .on('mouseover', showTooltip)
+        // // .on('mouseover', function(d) {
+        // //     tooltip.transition()
+        // //     //tooltip.duration(200)
+        // //     tooltip.style("opacity", 1)
+        // //     tooltip.select("text").text(d.CommunityName);
+        // // })
         // .on("mousemove", moveTooltip )
         // .on("mouseleave", hideTooltip)
 
     
-   bubbles.append("text")
-            .text(d => d.CommunityName)
+//    bubbles.append("text")
+//             .text(d => d.CommunityName)
 }

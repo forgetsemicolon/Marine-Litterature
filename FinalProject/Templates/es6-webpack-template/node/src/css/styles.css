@@ -64,6 +64,13 @@ body {
     opacity: 0.3;
   }
 
+#tooltip{
+    background-color: #e07b5f44;
+    font-family:Verdana; 
+    border-radius: 5%;
+    padding: 10px;
+}
+
 
 
 /* 2nd viz */
