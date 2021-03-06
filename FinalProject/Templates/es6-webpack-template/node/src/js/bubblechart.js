@@ -89,7 +89,7 @@ export async function drawBubbleChart(){
 
     // Add a scale for bubble size
     var z = d3.scaleLinear()
-        .domain([1, 1061])
+        .domain([20, 1061])
         .range([ 1, 100]);
 
 
