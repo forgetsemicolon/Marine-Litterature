@@ -6,8 +6,8 @@ export async function drawStreamGraph(){
 
     // set the dimensions and margins of the graph
     var margin = {top: 40, right: 20, bottom: 30, left: 30},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 1000 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#streamgraph")
@@ -16,7 +16,7 @@ export async function drawStreamGraph(){
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform",
-                    "translate(" + margin.left + "," + margin.top + ")");
+                    "translate(" + margin.left-10 + "," + margin.top-10 + ")");
 
     // Parse the Data
     const data = await d3.csv(csvPath);
@@ -41,10 +41,10 @@ export async function drawStreamGraph(){
 
     // Add X axis label:
     svg.append("text")
-    .attr("text-anchor", "end")
-    .attr("x", width/2)
-    .attr("y", height-10 )
-    .text("Year");
+        .attr("text-anchor", "end")
+        .attr("x", width/2)
+        .attr("y", height-10 )
+        .text("Year");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -99,6 +99,7 @@ export async function drawStreamGraph(){
                 .x(function(d) { return x(d.data.year); })
                 .y0(function(d) { return y(d[0]); })
                 .y1(function(d) { return y(d[1]); })
+                .curve(d3.curveMonotoneX);
 
     // Show the areas
     svg
@@ -109,7 +110,7 @@ export async function drawStreamGraph(){
         .attr("class", "myArea")
         .style("fill", function(d) { return color(d.key); })
         .attr("d", area)
-        .style("opacity", 0.5)
+        .style("opacity", 0.9)
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)

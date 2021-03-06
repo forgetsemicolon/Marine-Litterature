@@ -3,6 +3,7 @@
 import './css/style.scss';
 import './css/styles.css'; /* Example of connecting a style-sheet */
 import {drawStreamGraph} from "./js/streamgraph"
+import {drawBubbleChart} from "./js/bubblechart"
 
 /* 
     TODO: all the other logic for implementing your charts + adding in some basic filters 
@@ -10,3 +11,4 @@ import {drawStreamGraph} from "./js/streamgraph"
 */
 
 drawStreamGraph();
+drawBubbleChart();
