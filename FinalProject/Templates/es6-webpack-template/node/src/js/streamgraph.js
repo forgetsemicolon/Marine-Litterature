@@ -16,7 +16,7 @@ export async function drawStreamGraph(){
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform",
-                    "translate(" + margin.left-10 + "," + margin.top-10 + ")");
+                    "translate(" + margin.left-5 + "," + margin.top-5 + ")");
 
     // Parse the Data
     const data = await d3.csv(csvPath);
@@ -54,7 +54,7 @@ export async function drawStreamGraph(){
     // color palette
     var color = d3.scaleOrdinal()
                     .domain(keys)
-                    .range(["#0f2433", "#1c4a66", "#296d99", "#3792cb", "#5fb1e3"]);
+                    .range(["#0f2433", "#1c4a66", "#296d99", "#3792cb", "#ffffff"]);
 
     //stack the data
     var stackedData = d3.stack()
@@ -77,7 +77,7 @@ export async function drawStreamGraph(){
             d3.selectAll(".myArea").style("opacity", 0.1)
             d3.select(this)
             //.style("stroke", "black")
-            .style("opacity", 0.8)
+            .style("opacity", .9)
     }
 
     console.log(keys)
@@ -115,8 +115,8 @@ export async function drawStreamGraph(){
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
 
-        var colors = [ "#1c4a66", "#296d99", "#3792cb", "#0f2433", "#5fb1e3"]
-        var attr = ["Baltic Sea", "Black Sea", "Mediterranean Sea", "North-east Atlantic Ocean", "Unknown"]
+        var colors = ["#ffffff", "#3792cb", "#296d99", "#1c4a66", "#0f2433"]
+        var attr = ["Unknown", "Mediterranean Sea", "Black Sea", "Baltic Sea", "North-east Atlantic Ocean"]
         var padding = 400;
     
         var legend = svg.append('g')

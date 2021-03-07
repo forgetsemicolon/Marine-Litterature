@@ -14,6 +14,30 @@ body {
 
 
 
+.step {
+    width: 20%;
+    height : 600px;
+    font-family: "TiemposTextWeb-Regular","Georgia";
+    font-size: 16px;
+    line-height: 23px;
+    color: white;
+    float: left;
+    margin-bottom: 60px;
+    margin-left: 25px;
+    margin-top: 150px;
+  }
+  
+  .title {
+    font-family: Arial,Helvetica,"san-serif";
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: #262626;
+    line-height: 1.2em;
+    float:left;
+  }
+
+
 /* 1st viz */
 
 .container1 {
@@ -26,15 +50,14 @@ body {
     margin-top: 50px;
 }
 
-.step {
+/* .step {
     width: 20%;
     height: 600px;
     float: left;
-    /* position: relative; */
     margin-bottom: 60px;
     margin-left: 25px;
     margin-top: 150px;
-}
+} */
 
 #bubblechart {
     fill: white;
@@ -57,11 +80,11 @@ body {
   }
 
 .bubbles:hover {
-    stroke: black;
+    stroke: #1c4a66;
     /* color: #fb84ce; */
     stroke-width: 3px;
-    fill: white;
-    opacity: 0.3;
+    fill: #1c4a66;
+    opacity: 0.8;
   }
 
 #tooltip{
