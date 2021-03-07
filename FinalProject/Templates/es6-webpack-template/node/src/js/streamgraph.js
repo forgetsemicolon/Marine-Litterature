@@ -30,7 +30,7 @@ export async function drawStreamGraph(){
                 .range([ 0, width ]);
     
     svg.append("g")
-        .attr("transform", "translate(0," + height*0.8 + ")")
+        .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
                 .tickFormat(d3.format("d"))
                 .tickSize(-height*2)
@@ -40,16 +40,16 @@ export async function drawStreamGraph(){
     svg.selectAll(".tick line").attr("stroke", "#000000")
 
     // Add X axis label:
-    svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width/2)
-        .attr("y", height-10 )
-        .text("Year");
+    // svg.append("text")
+    //     .attr("text-anchor", "end")
+    //     .attr("x", width/2)
+    //     .attr("y", height-10 )
+    //     .text("Year");
 
     // Add Y axis
     var y = d3.scaleLinear()
     .domain([0, 300000])
-    .range([ height, 0 ]);
+    .range([ height, 350 ]);
 
     // color palette
     var color = d3.scaleOrdinal()
@@ -121,7 +121,7 @@ export async function drawStreamGraph(){
     
         var legend = svg.append('g')
                     .attr('class', 'legend')
-                    .attr('transform', 'translate(' + (padding + 12) + ', 0)');
+                    .attr('transform', 'translate(' + (padding + 402) + ', 13)');
     
                 legend.selectAll('rect')
                     .data(attr)
