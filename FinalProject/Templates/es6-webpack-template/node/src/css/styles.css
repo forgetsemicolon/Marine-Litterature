@@ -12,6 +12,12 @@ body {
     text-align: center;
 }
 
+p {
+    font-size: 15px;
+    padding: 0pt;
+    /* font-family: "Times New Roman", Times, serif; */
+    font-family: "Lucida Console", "Courier New", monospace;
+}
 
 
 .step {
@@ -41,6 +47,9 @@ body {
       float: right;
   }
 
+  .header-img-fish{
+      margin-top: 60px;
+  }
 
 /* 1st viz */
 
@@ -119,3 +128,16 @@ body {
     height: 500px;  */
 }
 
+
+/* 3rd viz */
+
+.container2 {
+    width: 100%;
+    height: 700px;
+    float: left;
+    /* position: relative; */
+    margin-bottom: 60px;
+    /* margin-left: 5px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
