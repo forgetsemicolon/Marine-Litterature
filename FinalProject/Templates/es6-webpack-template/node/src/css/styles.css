@@ -30,7 +30,7 @@ p {
     float: left;
     margin-bottom: 60px;
     margin-left: 25px;
-    margin-top: 150px;
+    margin-top: 100px;
   }
   
   .title {
@@ -42,6 +42,27 @@ p {
     line-height: 1.2em;
     float:left;
   }
+
+  .highlight{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: #1c4a66;
+    line-height: 1.2em;
+    float:left;
+  }
+
+  .highlight_year {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    /* margin-bottom: 2px; */
+    color: #1c4a66;
+    line-height: 1.2em;
+    float:left;
+  }
+
 
   .geo-img{
       float: right;
@@ -93,10 +114,12 @@ p {
   }
 
 #tooltip{
-    background-color: #e07b5f44;
+    background-color: white;
     font-family:Verdana; 
+    text-decoration: white;
     border-radius: 5%;
     padding: 10px;
+    opacity: 1;
 }
 
 

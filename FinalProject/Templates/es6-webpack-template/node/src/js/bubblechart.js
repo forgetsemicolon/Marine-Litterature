@@ -162,15 +162,16 @@ export async function drawBubbleChart(){
         .attr("cy", function (d) { return y(Math.random()); } )
         .attr("r", function (d) { return z(d.BeachesCleaned); } )
         .style("opacity", 0.8)
-        .on('mouseover', function (d) {
+        .on('mouseover', function (event,d) {
             d3.select('#tooltip')
                 .transition()
                 .duration(200)
-                .style('opacity', 1);
+                .style('opacity', 1)
+            
     
-            d3.select('#tooltip').html(d.CommunityName)
-                .style("left", d3.event.pageX + "px")
-                .style("top", "10px")
+            d3.select('#tooltip').html("Community Name: " + d.CommunityName + "<br>" + "Beach cleanups done: " + d.BeachesCleaned)
+                .style("left", event.pageX+ "px")
+                .style("top", event.pageY+ "px")
         })
         .on('mouseout', function () {
             d3.select('#tooltip').style('opacity', 0)
