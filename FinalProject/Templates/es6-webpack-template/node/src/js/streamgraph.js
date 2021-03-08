@@ -27,7 +27,7 @@ export async function drawStreamGraph(){
     // Add X axis
     var x = d3.scaleLinear()
                 .domain(d3.extent(data, function(d) { return d.year; }))
-                .range([ 0, width ]);
+                .range([ 70, width ]);
     
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -49,7 +49,7 @@ export async function drawStreamGraph(){
     // Add Y axis
     var y = d3.scaleLinear()
     .domain([0, 300000])
-    .range([ height, 350 ]);
+    .range([ height, 390 ]);
 
     // color palette
     var color = d3.scaleOrdinal()
