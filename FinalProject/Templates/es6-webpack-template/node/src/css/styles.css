@@ -166,9 +166,28 @@ p {
 }
 
 
+
+.geo-img {
+    position:relative;
+  }
+  
+  .img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 100px;
+    height: 100px;
+  }
+
+
+
+
+
 /* scroll snap structure start */
 html, body{
-        scroll-snap-type: y proximity; /*you can change this to y mandatory but it is misbehaving a bit*/
+        scroll-snap-type: y mandatory; /*you can change this to y mandatory but it is misbehaving a bit*/
     }
 /* This section is needed because the section is not taking up the height of its child container - caused because we used the float property in the child*/
 section.slide:after{
