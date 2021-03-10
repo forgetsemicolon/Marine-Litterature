@@ -142,7 +142,7 @@ export async function drawBubbleChart(){
     const gGrid = svg.append("g");
 
 
-    var toolTip = d3.select('body')
+    var toolTip = d3.select('#bubblechart')
     .append('div')
     .attr('id', 'tooltip')
     .attr('style', 'position: absolute; opacity: 0;');
@@ -169,27 +169,24 @@ export async function drawBubbleChart(){
                 .style('opacity', 1)
             
     
-            d3.select('#tooltip').html("Community Name: " + d.CommunityName + "<br>" + "Beach cleanups done: " + d.BeachesCleaned)
+            d3.select('#tooltip').html(d.CommunityName + "<br>" + "Cleanups done: " + d.BeachesCleaned)
                 .style("left", event.pageX+ "px")
                 .style("top", event.pageY+ "px")
         })
         .on('mouseout', function () {
             d3.select('#tooltip').style('opacity', 0)
         })
+        .transition().on("end", function () {
+            myTransf();
+        });
     
-        // .attr("stroke", "black")
-        // .style("stroke-width", '2.5px')
-        // .on('mouseover', showTooltip)
-        // // .on('mouseover', function(d) {
-        // //     tooltip.transition()
-        // //     //tooltip.duration(200)
-        // //     tooltip.style("opacity", 1)
-        // //     tooltip.select("text").text(d.CommunityName);
-        // // })
-        // .on("mousemove", moveTooltip )
-        // .on("mouseleave", hideTooltip)
 
-    
-//    bubbles.append("text")
-//             .text(d => d.CommunityName)
+        function myTransf(){
+            d3.selectAll(".bubbles").transition().duration(45500)
+            .attr("cx", function (d) { return x(Math.random()*100); }) // change this to a better more randomly updated function 
+            .attr("cy", function (d) { return y(Math.random()); }) // change this to a better more randomly updated function 
+            .on("end", function () {
+            myTransf();
+    });
+}
 }
