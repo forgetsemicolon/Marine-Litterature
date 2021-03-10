@@ -164,3 +164,32 @@ p {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+
+/* scroll snap structure start */
+html, body{
+        scroll-snap-type: y proximity; /*you can change this to y mandatory but it is misbehaving a bit*/
+    }
+/* This section is needed because the section is not taking up the height of its child container - caused because we used the float property in the child*/
+section.slide:after{
+        content: " "; 
+        display: block;
+        clear: both;
+    }
+
+section.slide {
+
+        scroll-snap-align: start;
+        /*scroll-snap-stop: always;*/
+    }
+
+section.slide_mid{
+        scroll-snap-align: center;
+        /*scroll-snap-stop: normal;*/
+    }
+section.slide_mid_last{
+        scroll-snap-align: start;
+        /*scroll-snap-stop: always;*/
+    }
+
+/* end */
