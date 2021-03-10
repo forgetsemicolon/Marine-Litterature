@@ -23,7 +23,8 @@ Our project tells a story on the various kinds of litters found on beaches in Eu
 * Clone the project 
 * In the terminal window, go to the location where project is cloned 
 * cd ECS272-FinalProject/FinalProject/Templates/es6-webpack-template/node
-* npm link webpack
 * npm rebuild node-sass
+* npm i -g husky
+* npm link webpack
 * npm i
 * npm start
