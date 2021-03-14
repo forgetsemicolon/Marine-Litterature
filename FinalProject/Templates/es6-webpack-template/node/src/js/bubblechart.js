@@ -14,11 +14,6 @@ export async function drawBubbleChart(){
         height = 600 - margin.top - margin.bottom;
 
 
-    // const zoom = d3.zoom()
-    //     .scaleExtent([0.5, 32])
-    //     .on("zoom", zoomed);
-  
-  
 
     // append the svg object to the body of the page
     var svg = d3.select("#bubblechart")
@@ -28,10 +23,6 @@ export async function drawBubbleChart(){
                 .append("g")
                 .attr("transform",
                     "translate(" + margin.left + "," + margin.top + ")")
-                // .call(d3.zoom().on("zoom", function () {
-                //         svg.attr("transform", d3.event.transform)
-                //      }))
-                //      .append("g");
 
     
     // Add X axis
@@ -39,18 +30,13 @@ export async function drawBubbleChart(){
               .domain([0, 100])
               .range([ 0, width ])
 
-    // var xAxis = svg.append("g")
-    //         .attr("transform", "translate(0," + height + ")")
-    //         .call(d3.axisBottom(x));
-    
+
 
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, 1])
         .range([ height, 0]);
 
-    // var yAxis = svg.append("g")
-    //     .call(d3.axisLeft(y));
 
     var k = height/width;
 
@@ -66,77 +52,12 @@ export async function drawBubbleChart(){
         .attr("x", 0)
         .attr("y", 0);
 
-    // Create the scatter variable: where both the circles and the brush take place
-    // var scatter = svg.append('g')
-    //                 .attr("clip-path", "url(#clip)")
-
-
-    // svg.append("g")
-    //     .call(d3.axisLeft(y))
-    //     .call(g =>
-    //         g .select(".tick:last-of-type text")
-    //           .clone()
-    //           .attr("transform", `rotate(-90)`)
-    //           .attr("text-anchor", "middle")
-    //           .attr("x", (600 - margin.top - margin.bottom) / 2)
-    //           .attr("y", 100)
-    //           .attr("font-weight", "bold")
-    //           .text("Danceability")
-    //           .style("color", "white")
-    //       );
-
 
 
     // Add a scale for bubble size
     var z = d3.scaleLinear()
         .domain([1, 1061])
         .range([5, 150]);
-
-
-    // var tooltip = d3.select("#bubblechart")
-    //                 .append("div")
-    //                 .style("opacity", 0)
-    //                 .attr("id", "tooltip")
-    //                 .style("background-color", "grey")
-    //                 .style("border-radius", "5px")
-    //                 .style("padding", "10px")
-    //                 .style("color", "white")
-
-    //                 tooltip.append("text")
-    //                 .attr("x", 15)
-    //                 .attr("dy", "1.2em")
-    //                 .style("text-anchor", "middle")
-    //                 .attr("font-size", "12px")
-    //                 .attr("font-weight", "bold");
-
-    
-    // var showTooltip = function(d) {
-                        
-    //                 tooltip
-    //                       .transition()
-    //                       .duration(200)
-    //                 tooltip
-    //                       .style("opacity", 1)
-    //                       .html("Community name: " + d.CommunityName)
-    //                       .style("left", (d3.mouse(this)[0]+30) + "px")
-    //                       .style("top", (d3.mouse(this)[1]+30) + "px")
-
-    //                   }
-
-    // var moveTooltip = function(d) {
-                        
-    //                 tooltip
-    //                       .style("left", (d3.mouse(this)[0]+30) + "px")
-    //                       .style("top", (d3.mouse(this)[1]+30) + "px")
-    //                   }
-    
-    // var hideTooltip = function(d) {
-                
-    //                 tooltip
-    //                       .transition()
-    //                       .duration(200)
-    //                       .style("opacity", 0)
-    //                   }
                     
     
     const gGrid = svg.append("g");
@@ -150,7 +71,6 @@ export async function drawBubbleChart(){
     
     
     // Add dots
-    //svg.append('g')
     const bubbles = svg.append('g')
     //scatter
         .selectAll("dot")
@@ -180,11 +100,12 @@ export async function drawBubbleChart(){
             myTransf();
         });
     
-
-        function myTransf(){
+    
+    //floating bubbles
+    function myTransf(){
             d3.selectAll(".bubbles").transition().duration(45500)
-            .attr("cx", function (d) { return x(Math.random()*100); }) // change this to a better more randomly updated function 
-            .attr("cy", function (d) { return y(Math.random()); }) // change this to a better more randomly updated function 
+            .attr("cx", function (d) { return x(Math.random()*100); }) 
+            .attr("cy", function (d) { return y(Math.random()); })  
             .on("end", function () {
             myTransf();
     });

@@ -4,7 +4,6 @@ h1 {
 }
 
 body {
-    /* margin-left: 50px; */
     background-color: #5fb1e3;
 }
 
@@ -15,7 +14,6 @@ body {
 p {
     font-size: 15px;
     padding: 0pt;
-    /* font-family: "Times New Roman", Times, serif; */
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -187,7 +185,7 @@ p {
 
 /* scroll snap structure start */
 html, body{
-        scroll-snap-type: y mandatory; /*you can change this to y mandatory but it is misbehaving a bit*/
+        scroll-snap-type: y mandatory; 
     }
 /* This section is needed because the section is not taking up the height of its child container - caused because we used the float property in the child*/
 section.slide:after{

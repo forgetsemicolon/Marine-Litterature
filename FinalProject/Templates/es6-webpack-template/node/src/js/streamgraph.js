@@ -39,13 +39,6 @@ export async function drawStreamGraph(){
     // Customization
     svg.selectAll(".tick line").attr("stroke", "#000000")
 
-    // Add X axis label:
-    // svg.append("text")
-    //     .attr("text-anchor", "end")
-    //     .attr("x", width/2)
-    //     .attr("y", height-10 )
-    //     .text("Year");
-
     // Add Y axis
     var y = d3.scaleLinear()
     .domain([0, 300000])
@@ -58,8 +51,6 @@ export async function drawStreamGraph(){
 
     //stack the data
     var stackedData = d3.stack()
-                        //.offset(d3.stackOffsetSilhouette)
-                        //.order(d3.stackOrderInsideOut)
                         .keys(keys)
                         (data)
 
